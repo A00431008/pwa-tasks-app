@@ -21,8 +21,6 @@ const TaskApp = () => {
                 
                 //update the state of tasks with the json Data
                 setTasks(jsonData)
-                console.log("Data set to state")
-                console.log(jsonData);
             } catch (error) {
                 console.log(error)
             }
