@@ -46,6 +46,7 @@ const TaskApp = () => {
             setTasks([...tasks, {
                 id: Date.now(),
                 text: newTask,
+                priority: "Normal",
                 completed: false
             }])
         };
@@ -60,6 +61,27 @@ const TaskApp = () => {
         setTasks(
             tasks.map((task) => 
                 (task.id === taskID ) ? { ...task, completed: !task.completed } : task
+            )
+        );
+    }
+
+    function getNewPriority(currentPriority) {
+        switch (currentPriority) {
+            case "Normal":
+                return "Low";
+            case "Low":
+                return "High";
+            case "High":
+                return "Normal"
+            default:
+                return "Normal"
+        }
+    }
+
+    function changePriority(taskID) {
+        setTasks(
+            tasks.map((task) => 
+                (task.id === taskID) ? { ...task, priority: getNewPriority(task.priority)} : task
             )
         );
     }
@@ -92,6 +114,7 @@ const TaskApp = () => {
                 tasks={tasks}
                 deleteTask={deleteTask}
                 toggleComplete={toggleComplete}
+                changePriority={changePriority}
             />
             
             
