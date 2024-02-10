@@ -30,7 +30,7 @@ const TaskApp = () => {
 
     // Use Effect Hook to update LocalStorate each time state of task changes
     useEffect(() => {
-        if (tasks.length != 0) {
+        if (tasks.length !== 0) {
             try {
                 localStorage.setItem('tasks', JSON.stringify(tasks));
             } catch (err) {
@@ -69,7 +69,8 @@ const TaskApp = () => {
         <div className="container ">
 
             {/* Header */}
-            <h1>Task App</h1>
+            <br />
+            <h1 className="text-primary">Task App</h1>
 
             {/* Input Bar */}
             <div className="input-group">
